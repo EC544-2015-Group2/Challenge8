@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),
     server = require('http').Server(app),
     serialport = require('serialport'),
-    io = require('socket.io')(server);
+    io = require('socket.io').listen(server);
 
 const PORT = 3000;
 const SERIAL_MSG_FORWARD = 0x00,
