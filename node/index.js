@@ -5,11 +5,11 @@ var express = require('express'),
     io = require('socket.io').listen(server);
 
 const PORT = 3000;
-const SERIAL_MSG_FORWARD = 0x00,
-    SERIAL_MSG_BACKWARD = 0x01,
-    SERIAL_MSG_TURN_LEFT = 0x02,
-    SERIAL_MSG_TURN_RIGHT = 0x03,
-    SERIAL_MSG_TOGGLE_MANUAL = 0x04;
+const SERIAL_MSG_FORWARD = new Buffer([0x00]),
+    SERIAL_MSG_BACKWARD = new Buffer([0x01]),
+    SERIAL_MSG_TURN_LEFT = new Buffer([0x02]),
+    SERIAL_MSG_TURN_RIGHT = new Buffer([0x03]),
+    SERIAL_MSG_TOGGLE_MANUAL = new Buffer([0x04]);
 
 app.use(express.static('client'));
 app.get('/', function(req, res) {
