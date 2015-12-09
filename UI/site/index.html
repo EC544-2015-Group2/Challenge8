@@ -215,75 +215,69 @@
   </div>
 </footer>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-  <script>
-var socket = io();
-function onControl(id) {
-socket.emit('control', function (data) {
-    console.log(data);
-})
-}
-window.onload = function() {
-paper.install(window);
-paper.setup('myCanvas');
-var wallPath = new Path({
-    segments: [
-        [440,640],
-        [440, 40],
-        [40, 40],
-        [40,640]
-    ],
-    strokeColor: 'black',
-    strokeWidth: 3,
-    closed: false
-});
-var wallPath1 = new Path({
-    segments: [
-        [380,640],
-        [380,580],
-        [100,580],
-        [100,640]
-    ],
-    strokeColor: 'black',
-    strokeWidth: 3,
-    closed: false
-});
-var wallPath2 = new Path({
-    segments: [
-        [100,100],
-        [100,520],
-        [140,520],
-        [140,440],
-        [340,440],
-        [340,520],
-        [380,520],
-        [380,100]
+<script>
+    var socket = io();
+    window.onload = function() {
+        paper.install(window);
+        paper.setup('myCanvas');
+        var wallPath = new Path({
+            segments: [
+                [440,640],
+                [440, 40],
+                [40, 40],
+                [40,640]
+            ],
+            strokeColor: 'black',
+            strokeWidth: 3,
+            closed: false
+        });
+        var wallPath1 = new Path({
+            segments: [
+                [100,370],
+                [100,580],
+                [380,580],
+                [380,370]
+            ],
+            strokeColor: 'black',
+            strokeWidth: 3,
+            closed: true
+        });
+        var wallPath2 = new Path({
+            segments: [
+                [100,100],
+                [100,310],
+                [140,310],
+                [140,250],
+                [340,250],
+                [340,310],
+                [380,310],
+                [380,100]
 
-
-    ],
-    strokeColor: 'black',
-    strokeWidth: 3,
-    closed: true
-});
-var beaconLocations = [
-    [62, 62],
-    [62, 558],
-    [418, 558],
-    [418, 62]
-]
-var beaconPaths = beaconLocations.map(function(location) {
+            ],
+            strokeColor: 'black',
+            strokeWidth: 3,
+            closed: true
+        });
+        var beaconLocations = [
+            [120, 348],
+            [402, 392],
+            [78, 558],
+            [358, 602]
+        ]
+        var beaconPaths = beaconLocations.map(function(location) {
 //            var beaconPath = new Path.Circle(location, 10);
 //            beaconPath.fillColor = 'red';
 //            return beaconPath;
-    var path = new Path.Star({
-        center: location,
-        points: 5,
-        radius1: 8,
-        radius2: 22,
-        rotation: 35,
-        fillColor: 'red'
-    });
-});
-}
+            var path = new Path.Star({
+                center: location,
+                points: 5,
+                radius1: 8,
+                radius2: 22,
+                rotation: 35,
+                fillColor: 'red'
+            });
+        });
+    }
 </script>
 </body>
 </html>
