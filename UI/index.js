@@ -40,6 +40,8 @@ var Serial = new serialport.SerialPort(process.argv[2], serialOptions, true, fun
     });
 
     Serial.on('data', function(data) {
+        data = data.split(',');
+        data = [parseInt(data[0]), parseInt(data[1])];
         io.emit('location', data);
     });
 
