@@ -11,9 +11,9 @@ const SERIAL_MSG_FORWARD = new Buffer([0x00]),
     SERIAL_MSG_TURN_RIGHT = new Buffer([0x03]),
     SERIAL_MSG_TOGGLE_MANUAL = new Buffer([0x04]);
 
-app.use(express.static('client'));
+app.use(express.static('site'));
 app.get('/', function(req, res) {
-    res.sendFile('client/index.html');
+    res.sendFile('site/index.html');
 });
 
 var serialOptions = {
