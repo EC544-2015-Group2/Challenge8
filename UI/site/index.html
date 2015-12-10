@@ -398,7 +398,7 @@
             alert("Sorry, this browser does not support WebSockets.");
         }
 
-        
+
         paper.install(window);
         paper.setup('myCanvas');
         var wallPath = new Path({
@@ -457,6 +457,17 @@
                 rotation: 35,
                 fillColor: 'red'
             });
+        });
+
+        var secondLayer = new paper.Layer();
+        socket.on('location', function(location) {
+            secondLayer.removeChildren();
+            secondLayer.addChild(Path.Circle({
+                center: location,
+                radius: 10,
+                fillColor: 'red'
+            }));
+            paper.view.draw();
         });
     }
     </script>
